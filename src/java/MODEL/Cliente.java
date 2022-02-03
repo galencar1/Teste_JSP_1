@@ -1,6 +1,8 @@
 
 package MODEL;
-
+//A model com os métodos Getters e Setters vão inserir dados no banco de dados
+//e pegar os dados do banco de dados.
+// Os nomes das variáveis devem ser iguais as colunas criadas nas tabelas do DB
 public class Cliente {
     private int id_cliente;
     private String nome_cliente;
