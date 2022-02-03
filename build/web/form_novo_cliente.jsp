@@ -22,32 +22,28 @@
                     <script src="js/script.js"></script>
                 
                     <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-                        <form class="login100-form validate-form">
-                            <span class="login100-form-title p-b-59">Cadastrar
-
-                            </span>
+                        <form class="login100-form validate-form" 
+                        method="post" action="cadastrarCliente.jsp">
+                            <span class="login100-form-title p-b-59">Cadastrar</span>
+                            
                             <div class="wrap-input100 validate-input" data-validate="Preencha o campo nome">
-                                <span class="label-input100">Nome Completo
-
-                                </span>
+                                <span class="label-input100">Nome Completo</span>
                                 <input class="input100" type="text" name="nome" placeholder="Nome...">
                                 <span class="focus-input100"></span>
                             </div>
+                            
                             <div class="wrap-input100 validate-input" data-validate="ex@abc.com">
-                                <span class="label-input100">Email
-
-                                </span>
-                                <input class="input100" type="text" name="Email" placeholder="Email...">
+                                <span class="label-input100">Email</span>
+                                <input class="input100" type="text" name="email" placeholder="Email...">
                                 <span class="focus-input100"></span>
                             </div>
 
                             <div class="wrap-input100 validate-input" data-validate="9999-9999">
-                                <span class="label-input100">Telefone
-
-                                </span>
-                                <input class="input100" type="text" name="nome" placeholder="Telefone...">
+                                <span class="label-input100">Telefone</span>
+                                <input class="input100" type="text" name="telefone" placeholder="Telefone...">
                                 <span class="focus-input100"></span>
                             </div>
+                            
                             <div class="container-login100-form-btn">
                                 <div class="wrap-login100-form-btn">
                                     <div class="login100-form-bgbtn">

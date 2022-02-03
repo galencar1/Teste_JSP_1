@@ -45,7 +45,7 @@ public class DAOCliente {
             // para colocar uma string na Model.Cliente utilizando os Getters
             // para inserir os dados nas colunas das tabelas;
             pstm.setString(1, objcliente.getNome_cliente());
-            pstm.setString(1, objcliente.getEmail_cliente());
+            pstm.setString(2, objcliente.getEmail_cliente());
             pstm.setString(3, objcliente.getTelefone_cliente());
             
             //Vamos abrir o caminho e executar o comando para que seja inserido os dados no DB
