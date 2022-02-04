@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gabo_/Documents/NetBeansProjects/Teste_JSP_1/src/java/DAO/Conexao.java</file>
+            <file>file:/C:/Users/gabo_/Documents/NetBeansProjects/Teste_JSP_1/src/java/DAO/DAOCliente.java</file>
+            <file>file:/C:/Users/gabo_/Documents/NetBeansProjects/Teste_JSP_1/web/form_novo_cliente.jsp</file>
+            <file>file:/C:/Users/gabo_/Documents/NetBeansProjects/Teste_JSP_1/src/java/MODEL/Cliente.java</file>
+            <file>file:/C:/Users/gabo_/Documents/NetBeansProjects/Teste_JSP_1/web/cadastrarCliente.jsp</file>
         </group>
     </open-files>
 </project-private>

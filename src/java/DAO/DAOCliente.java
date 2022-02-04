@@ -8,7 +8,7 @@ import java.sql.PreparedStatement; // Trabalha com inserção de parâmetros no 
 import java.sql.Statement; // Trabalha com a inserção de parâmetros no DB. 
 //Utilizamos o Statement para inserir apenas UM Parâmetro
 import java.sql.ResultSet; //Todos os dados obtidos da consulta do banco de dados
-//são inseridos no Result Set
+//são inseridos no Result Set(recebe do Statement ou do Prepared Statement      )
 import java.util.ArrayList; // Os resultados lançados no Result Set são inseridos no array List
 //para que possam ser exibidos em formato de tabela(lista).
 
@@ -57,6 +57,40 @@ public class DAOCliente {
         } catch (Exception erro) {
             throw new RuntimeException("ERRO DAOCliente CADASTRAR CLIENTE " + erro);
         }
+    }
+    
+    /*Criar um método ArrayList para listar os clientes cadastrados no DB*/
+    public ArrayList<Cliente> listarClientes(){
+        /*Cria variável para guardar a Instrução SQL*/
+        String sql = "SELECT * FROM clientes";
+        /*Try Catch para verificação de erros*/
+        try {
+            /*utilizamos o statement(Apenas um parâmetro) para pegar os dados
+            e o Result Set para guardar os resultados*/
+            st = conn.createStatement();
+            rs = st.executeQuery(sql);
+            /*Criamos um loop while para percorrer toda a tabela do DB
+            enquanto houver uma próxima linha com dados ele buscará e armazenará
+            */
+            while(rs.next()){
+                /*Acessamos a Model Cliente através de um obj*/
+                Cliente objcliente = new Cliente();
+                /*O Objeto Cliente acessa a model e seta os atributos com os valores
+                que o rs pegou do banco de dados*/
+                objcliente.setId_cliente(rs.getInt("id_cliente"));
+                objcliente.setNome_cliente(rs.getString("nome_cliente"));
+                objcliente.setEmail_cliente(rs.getString("email_cliente"));
+                objcliente.setTelefone_cliente(rs.getString("telefone_cliente"));
+                /*Adicionamos os resultados capturados na lista utilizando o método lista 
+                através do objeto cliente (Model Cliente)*/
+                lista.add(objcliente);
+                
+            }
+        } catch (Exception erro) {
+            throw new RuntimeException("ERRO DAOCliente Listar Clientes " + erro);
+        }
+        /*Como nosso método não é VOID precisamos de um retorno*/
+        return lista;
     }
     
 }

@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="DAO.DAOCliente" %>
+<%@page import="MODEL.Cliente" %>
+<%@page import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -51,12 +54,28 @@
                                 <th>EMAIL</th>
                                 <th>TELEFONE</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>sjfbspKMFLÇAMLFMAKLMSFLKNASEFJKLNAJKSBFJKASN</td>
-                                <td>JABJDFB@DFKDN.COM</td>
-                                <td>43 999999999</td>
-                            </tr>
+                            <%-- Para exibir os resultados capturados pelo método
+                            listarClientes() que está na DAOCliente, precisamos 
+                            chamá-lo aqui--%>
+                            <%
+                                DAOCliente clid = new DAOCliente();
+                                /*Vamos utilizar o método ArrayList acessando a Model Cliente
+                                atribuindo chamando o método listar clientes que está
+                                na DAO Cliente.*/
+                                ArrayList<Cliente> lista = clid.listarClientes();
+                                /*Vamos utilizar um loop for para percorrer toda a lista
+                                e trazer todos os dados obtidos*/
+                                for(int i = 0; i<lista.size();i++){
+                                    /*Com o método lista pegamos a variável 'i', 
+                                    e pegamos os métodos Getter da Model Cliente*/
+                                out.print("<tr>");
+                                    out.print("<td>"+lista.get(i).getId_cliente()+"</td>");
+                                    out.print("<td>"+lista.get(i).getNome_cliente()+"</td>");
+                                    out.print("<td>"+lista.get(i).getEmail_cliente()+"</td>");
+                                    out.print("<td>"+lista.get(i).getTelefone_cliente()+"</td>");
+                                out.print("</tr>");
+                                }
+                            %>
                         </table>
                     </div>
 
