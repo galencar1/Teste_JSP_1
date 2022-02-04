@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList" %>
+<%@page import="DAO.DAOProduto" %>
+<%@page import="MODEL.Produto" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -48,15 +51,26 @@
                             <tr>
                                 <th>ID</th>
                                 <th>NOME</th>
-                                <th>EMAIL</th>
-                                <th>TELEFONE</th>
+                                <th>QUANTIDADE</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>sjfbspKMFLÇAMLFMAKLMSFLKNASEFJKLNAJKSBFJKASN</td>
-                                <td>JABJDFB@DFKDN.COM</td>
-                                <td>43 999999999</td>
-                            </tr>
+                            <%--Vamos chamar a DAO Produto para acessar os métodos --%>
+                            <%
+                                DAOProduto prod = new DAOProduto();
+                                /*Vamos chamar o método listar clientes através do ArrayList*/
+                                ArrayList<Produto> lista = prod.listarProdutos();
+                                /*Vamos criar um loop for para percorrer toda a lista e trazer
+                                os dados obtidos*/
+                                for(int i=0;i<lista.size();i++){
+                                out.print("<tr>");
+                                   /*Com o método lista pegamos a variável 'i', 
+                                    e pegamos os métodos Getter da Model Cliente*/
+                                    out.print("<td>"+lista.get(i).getId_produto()+"</td>");
+                                    out.print("<td>"+lista.get(i).getNome_produto()+"</td>");
+                                    out.print("<td>"+lista.get(i).getQtd_produto()+"</td>");
+                                out.print("</tr>");
+                            }
+                            %>
+                            
                         </table>
                     </div>
 
